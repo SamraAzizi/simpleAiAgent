@@ -8,3 +8,19 @@ load_dotenv()
 
 def main():
     model = ChatOpenAI(temperature=0)
+
+    tools = []
+    agent_executor = create_react_agent(model, tools)
+
+    print("Welcome! Im you AI assistant.Type 'quit' to exit.")
+    print("You can ask me to perform calculations or chat with me.")
+
+    while True:
+        user_input = input("\nYou: ").strip()
+        if user_input == 'quit':
+            break
+
+        print("\nAssistant: ", end="")
+        for chunk in agent_executor.stream(
+            {"messages": [HumanMessages(content=user_input)]}
+        )
