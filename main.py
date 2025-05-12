@@ -6,6 +6,12 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+@tool
+def calculator(a: float, b: float) -> str:
+    """Useful for performing basic arithemtic calculation with number"""
+    print("Tool has been called.")
+    return f"The su of {a} and {b} is {a+b}"
+
 def main():
     model = ChatOpenAI(temperature=0)
 
