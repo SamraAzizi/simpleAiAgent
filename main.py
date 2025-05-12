@@ -12,10 +12,18 @@ def calculator(a: float, b: float) -> str:
     print("Tool has been called.")
     return f"The su of {a} and {b} is {a+b}"
 
+
+@tool
+def say_hello(name:str) -> str:
+    """Usefull for gretting a use"""
+    print("Tool has been called.")
+    return f"Hello {name}, I hope you are well today"
+
+
 def main():
     model = ChatOpenAI(temperature=0)
 
-    tools = []
+    tools = [calculator, say_hello]
     agent_executor = create_react_agent(model, tools)
 
     print("Welcome! Im you AI assistant.Type 'quit' to exit.")
