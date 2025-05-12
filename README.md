@@ -38,8 +38,8 @@ def say_hello(name: str) -> str:
 ## Setup Instructions
 1. Clone the repository:
 ```bash
-git clone <your-repo-url>
-cd <project-folder>
+git clone https://github.com/SamraAzizi/simpleAiAgent.git
+cd simpleAiAgent
 ```
 
 2. Install dependencies:
